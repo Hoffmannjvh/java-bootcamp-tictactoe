@@ -4,6 +4,9 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Arrays;
 
+
+import static java.util.Objects.*;
+
 public class Board {
 
     public static final int SIZE = 3;
@@ -46,5 +49,22 @@ public class Board {
         }
 
         return  sw.toString();
+    }
+
+    public void update(Symbol symbol, Coord coord) {
+
+        requireNonNull(symbol);
+        requireNonNull(coord);
+
+        if (symbol == Symbol.NONE) {
+            throw new IllegalArgumentException("None cannot be added to board");
+        }
+
+        if (matrix[coord.getI()][coord.getJ()] != Symbol.NONE) {
+            throw new IllegalArgumentException("Play is not possible");
+        }
+
+        matrix[coord.getI()][coord.getJ()] = symbol;
+
     }
 }
