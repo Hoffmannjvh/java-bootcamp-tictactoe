@@ -19,7 +19,7 @@ public final class Output {
             if (addNewLine) {
                 System.out.println(obj);
             } else {
-                System.out.println(obj);
+                System.out.print(obj);
             }
         }
     }
