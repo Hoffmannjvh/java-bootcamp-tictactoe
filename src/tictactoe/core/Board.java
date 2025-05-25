@@ -51,7 +51,7 @@ public class Board {
         return  sw.toString();
     }
 
-    public void update(Symbol symbol, Coord coord) {
+    public Symbol update(Symbol symbol, Coord coord) {
 
         requireNonNull(symbol);
         requireNonNull(coord);
@@ -65,6 +65,13 @@ public class Board {
         }
 
         matrix[coord.getI()][coord.getJ()] = symbol;
+        return findSequence();
 
     }
+
+    private Symbol findSequence() {
+        //TODO
+        return null;
+    }
+
 }
